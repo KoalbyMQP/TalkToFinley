@@ -4,6 +4,8 @@ from openai import OpenAI
 load_dotenv()  # take environment variables from .env.
 client = OpenAI()
 
+# Create and execute message request
+# https://platform.openai.com/docs/guides/text-generation
 completion = client.chat.completions.create(
   model="gpt-3.5-turbo",
   messages=[
