@@ -2,5 +2,8 @@
 pyaudio
 speechrecognition
 
+# openai chat response
+openai
+
 # text to speech
 pyttsx3
