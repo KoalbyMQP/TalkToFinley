@@ -1,0 +1,6 @@
+# speech to text
+pyaudio
+speechrecognition
+
+# text to speech
+pyttsx3
