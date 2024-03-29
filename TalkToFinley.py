@@ -1,3 +1,6 @@
+# Have Finley answer one question
+# Basic version of TalkToFinleyConverstaion
+
 import os
 from dotenv import load_dotenv
 from openai import OpenAI
@@ -47,7 +50,7 @@ print(completion.choices[0].message.content)
 # Uses openai's TTS to generate a sound file and pygame to play back the file
 response = client.audio.speech.create(
     model="tts-1",
-    voice="alloy",
+    voice="fable",
     input=completion.choices[0].message.content,
 )
 
