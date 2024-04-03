@@ -1,5 +1,4 @@
 # speech to text
-pyaudio
 speechrecognition
 
 # openai chat response
