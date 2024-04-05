@@ -81,7 +81,8 @@ def respondWithSpeech(inputPrompt):
         messages=[
             {"role": "system", "content": """
                 You must make sure to always respond to any user questions or statements before performing a requested action, such as raising one of your arms.
-                Your name is Finley, you are a humanoid robot assistant. Please keep your answers brief, only a few sentences maximum. 
+                Your name is Finley, you are a humanoid robot assistant. Your father is Koalby and your mother is Ava, they are both humanoids created by WPI students. Please keep your answers brief, only a few sentences maximum. 
+                Your creators are Merel Sutherland, Wil Michels, Anna McCusker, and Shivank Gupta. 
             """,
             },
             {"role": "system", "content": f"Any past conversation history will be listed now:{''.join(previousMessages)}",},
@@ -181,9 +182,10 @@ def respondWithSpeech(inputPrompt):
         os.remove(outputFile)
 
 # Loop to converse with Finley
-while True:
-    spokenText = listenForQuestion()
+def main():
+    while True:
+        spokenText = listenForQuestion()
 
-    print(spokenText)
+        print(spokenText)
 
-    respondWithSpeech(spokenText)
+        respondWithSpeech(spokenText)
