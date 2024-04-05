@@ -55,7 +55,7 @@ def listenForQuestion():
 
                 print("Listening for speech. Say just 'quit', 'stop', or 'exit' to exit from the program.")
                 # listens for the user's input
-                audio2 = r.listen(src, timeout=30)
+                audio2 = r.listen(src, timeout=10)
 
                 print("Converting to text...")
                 # Using google to recognize audio
@@ -148,11 +148,12 @@ def respondWithSpeech(inputPrompt):
 
     # step 3: speak openai's response using TTS
 
+
     if assistant_message.content is not None:
         # Uses openai's TTS to generate a sound file and pygame to play back the file
         response = client.audio.speech.create(
             model="tts-1",
-            voice="fable",
+            voice="fable", # change voice here
             input=completion.choices[0].message.content,
         )
 
