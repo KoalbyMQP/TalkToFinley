@@ -70,6 +70,8 @@ while True:
     # Check if the mouse is over the button. This will create the button hover effect
     if button_rect.collidepoint(pygame.mouse.get_pos()):
         pygame.draw.rect(screen, light_peach, button_rect)
+        image_rect = image.get_rect(center=(window_size[0] // 2, button_rect.bottom+100))  # Center the image horizontally and set vertical position
+        # screen.blit(image, image_rect)
     else:
         pygame.draw.rect(screen, white, button_rect)
 
@@ -80,8 +82,7 @@ while True:
     screen.blit(text, text_rect)
 
     # Blit the image below the button
-    image_rect = image.get_rect(center=(window_size[0] // 2, button_rect.bottom+100))  # Center the image horizontally and set vertical position
-    screen.blit(image, image_rect)
+
 
     # Update the game state
     pygame.display.update()
