@@ -158,3 +158,6 @@ def main():
         robot.motors[27].target = (math.radians(0), 'P')
         robot.moveAllToTarget()
     ##while loop for traj
+
+if __name__ == "__main__":
+    main()
