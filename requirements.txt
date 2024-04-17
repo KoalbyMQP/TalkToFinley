@@ -9,3 +9,14 @@ board
 pyzmq
 cbor
 cbor2 
+
+# speech to text
+speechrecognition
+
+# openai chat response
+python-dotenv
+openai
+
+# text to speech
+pyttsx3
+pygame
