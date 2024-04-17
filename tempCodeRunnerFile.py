@@ -1,1 +1,0 @@
-screen.blit(image, image_rect)

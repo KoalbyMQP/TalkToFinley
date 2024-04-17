@@ -1,53 +1,51 @@
-# Talk To Finley
+# RaspberryPi-Code_23-24
+## Raspberry Pi Side of Koalby/Ava
 
-Using speech recognition, talk to Finley through a microphone. Finley will process your question and respond using his voice!
+### Install and Use
+1. Download and install the latest versions of CoppeliaSim, Git, and Python for your OS
+    1. CoppeliaSim: https://coppeliarobotics.com/
+    2. Git: https://git-scm.com/downloads/
+    3. Python: https://www.python.org/downloads/
+2. Clone this GitHub repository
+    1. https://github.com/KoalbyMQP/RaspberryPi-Code_23-24
+3. Switch to the dev branch of this repository
+4. Install all Python packages in requirements.txt found in the root folder of this repository
+    1. pip install -r requirements.txt
+5. Open CoppeliaSim
+    1. For Ubuntu and macOS, you may have to open CoppeliaSim through terminal if not working
+6. Open wanted scene in CoppeliaSim
+    1. Our scenes are located at RaspberryPi-Code_23-24/backend/KoalbyHumanoid/Simulation Files
+    2. In CoppeliaSim: File → Open scene... → (select the scene file) → Open
+7. Run the Python script corresponding to what you want to happen in the scene
+    1. Our demo scripts are located at RaspberryPi-Code_23-24/backend/Demo Scripts
+    2. Make sure to run any scripts locally and from the root folder of this repository
 
-## Setup
+### Programs
+- KoalbyHumanoid
+  - Simulation Files
+    - Finly_Updated_URDF.ttt - CoppeliaSim model of Finley
+    - gyro.lua - code for gyroscope sensor in CoppeliaSim
+  - Config.py: Robot configuration (links and motors)
+  - Motor.py: RealMotor and SimMotor classes to get/set motor positions
+  - PID.py: PID class to calculate output based on error
+  - Plotter.py: plots points in 3D space using matplotlib
+  - poe.py: Product-of-Exponentials code (https://en.wikipedia.org/wiki/Product_of_exponentials_formula)
+  - Robot.py: RealRobot and SimRobot classes to control the entire robot
+  - trajPlanner.py: Basic Trajectory Planner (like from RBE 3001)
+- Simulation
+  - sim.py: python API to CoppeliaSim
+  - simConst.py: CoppeliaSim constants
+  - simpleTest.py: Simple script to test connection between python and CoppeliaSim (current non-functional)
+- Testing: various test scripts
+  - initRobot: initializes a RealRobot object
+  - initSim: initalizes the simulation (connects python to CoppeliaSim)
+  - simMotionTest: testing balancing while standing and bending over
+  - trajplannertest: tests the trajPlanner class in the KoalbyHumanoid package
 
-### Install the latest version of Python 3
-- https://www.python.org/downloads/
-
-### Clone this repository
-- Using github desktop: https://desktop.github.com/
-
-OR
-
-- Open terminal (mac/linux) or command prompt (windows) in the desired folder
-- Download repository with  ```git clone https://github.com/KoalbyMQP/TalkToFinley```
-
-### Install required python packages
-- Open terminal (mac/linux) or command prompt (windows) in the repository folder
-- Install python modules with ```pip install -r requirements.txt```
-
-### Tell git to ignore changes to .env to avoid publicly leaking openai API key
-- In the same folder: ```git update-index --assume-unchanged .env```
-
-### Setup OpenAI API key for response generation and (optionally) TTS
-- ask Jatin nicely to use his key :)
-
-OR
-
-- NOTE: you need to insert at least $5 into your account to use the API. Proceed with these steps if you are ok with this.
-- Create an OpenAI account: https://openai.com
-- Navigate to https://platform.openai.com/api-keys
-- Click Create New Secret Key (give it a name, default settings are fine)
-- Copy key into .env, replacing 'abc123'
-- Go to https://platform.openai.com/account/billing/overview
-- Click on 'Payment methods' and add a payment method 
-- Add at least $5 worth of credits ($5 will be more than enough)
-- (optional) delete payment method and disable auto recharge
-
-## Run Talk to Finley
-
-### Requirements
-- Python >= 3
-- Microphone
-- Speaker
-
-### Run code
-- run TalkToFinley.py in IDE, or navigate to repository folder in terminal/command prompt and run ```python TalkToFinley.py```
-- Wait for 'Listening for speech' prompt in terminal
-- Speak your question
-    - The program will automatically stop listening when it hears a long enough pause. 
-    - NOTE: ChatGPT does not have access to the internet or information beyond 2021.
-- Wait for response to generate and TTS to begin playing.
+## Branches (Update as new branches are made)
+### main
+Ready to deploy for good production codebase on Ava's Raspberry Pi
+### dev
+Ready to test development codebase on Ava's Raspberry Pi
+### sim
+Simulation development codebase

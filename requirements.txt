@@ -1,10 +1,11 @@
-# speech to text
-speechrecognition
-
-# openai chat response
-python-dotenv
-openai
-
-# text to speech
-pyttsx3
-pygame
+numpy
+pyserial
+modern_robotics
+adafruit-circuitpython-bno055
+coppeliasim-zmqremoteapi-client
+matplotlib
+asyncio
+board
+pyzmq
+cbor
+cbor2 

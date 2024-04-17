@@ -41,6 +41,18 @@ pygame.mixer.init()
 previousMessages = []
 
 # Listen for speech through the microphone to convert to a text query for chatgpt
+
+# def intro():
+
+#     response = client.audio.speech.create(
+#     model="tts-1",
+#     voice="alloy",
+#     input="Hello world! This is a streaming test.",
+# )
+#     response.stream_to_file("output.mp3")
+
+
+
 def listenForQuestion():
     success = False
 
@@ -189,6 +201,10 @@ def respondWithSpeech(inputPrompt):
 # Loop to converse with Finley
 def main():
     while True:
+
+        text = "hi, what is your name and what can you do for me?"
+        respondWithSpeech(text)
+        
         spokenText = listenForQuestion()
 
         print(spokenText)
