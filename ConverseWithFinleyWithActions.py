@@ -12,6 +12,7 @@ import pygame
 import warnings
 # Ignore DeprecationWarning
 warnings.filterwarnings("ignore", category=DeprecationWarning)
+import finlyPickAndPlaceIRL
 
 # Tool functions chatgpt can invoke indirectly
 def endConversation():
@@ -29,6 +30,10 @@ def lowerLeftArm():
 
 def lowerRightArm():
     print("*Lowering right arm*")
+
+def handCandy():
+    print("*Handing a piece of Candy*")    
+    finlyPickAndPlaceIRL.main() 
 
 # Initialization
 r = sr.Recognizer()
@@ -101,6 +106,8 @@ def respondWithSpeech(inputPrompt):
                 Please keep your answers brief, only a few sentences maximum. 
                 Your creators are Merel Sutherland, Wil Michels, Anna McCusker, and Shivank Gupta. The project's advisor is Pradeep Radhakrishnan, Ph.D. 
                 Users will be judges in a competition, asking you to perform certain actions and undertand your function.
+                April 19th 2024 is Project Presentation Day. You are showcasing your features including pick and place, modularity, and human interaction
+
                 
             
 
@@ -122,6 +129,17 @@ def respondWithSpeech(inputPrompt):
                 "name": "raiseLeftArm",
                 "description": "Raise your left arm",
             },
+            
+        },{
+            "type": "function",
+            "function": {
+                "name": "present",
+                "description": 
+                    "when the user asks to present something for them, talk about the integrated speaker and microphone you have"
+                    "also talk about the touch screen lcd that allows the user to control your movements"
+                    "talk about the openAI API you use to perform speech to text and commands"
+
+            },
         },{
             "type": "function",
             "function": {
@@ -140,7 +158,15 @@ def respondWithSpeech(inputPrompt):
                 "name": "lowerRightArm",
                 "description": "Lower your right arm",
             },
-        },],
+        },{
+            "type": "function",
+            "function": {
+                "name": "handCandy",
+                "description": "Handing a piece of candy",
+            },
+        },
+
+        ],
     )
 
     assistant_message = completion.choices[0].message
