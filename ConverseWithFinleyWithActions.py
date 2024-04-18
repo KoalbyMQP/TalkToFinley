@@ -29,22 +29,22 @@ def endConversation():
 def lowerLeftArm():
     print("*Lowering left arm*")
     robot.motors[6].target = (math.radians(90), 'P')
-    robot.moveToTarget(6)
+    robot.moveAllToTarget()
 
 def lowerRightArm():
     print("*Lowering right arm*")
     robot.motors[3].target = (math.radians(90), 'P')
-    robot.moveToTarget(3)
+    robot.moveToTarget()
 
 def raiseLeftArm():
     print("*Lowering left arm*")
     robot.motors[6].target = (math.radians(0), 'P')
-    robot.moveToTarget(6)
+    robot.moveToTarget()
 
 def raiseRightArm():
     print("*Lowering right arm*")
     robot.motors[3].target = (math.radians(0), 'P')
-    robot.moveToTarget(3)
+    robot.moveToTarget()
 
 def handCandy():
     print("*Handing a piece of Candy*")    
