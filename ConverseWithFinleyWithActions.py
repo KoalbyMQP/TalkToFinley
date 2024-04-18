@@ -13,6 +13,16 @@ import warnings
 # Ignore DeprecationWarning
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 import finlyPickAndPlaceIRL
+import sys, math
+
+import numpy as np 
+sys.path.append("./")
+from backend.KoalbyHumanoid.Robot import Robot
+
+
+is_real = True
+
+robot = Robot(is_real)
 
 # Tool functions chatgpt can invoke indirectly
 def endConversation():
@@ -21,9 +31,11 @@ def endConversation():
 
 def raiseLeftArm():
     print("*Raising left arm*")
+    robot.motors[6].target = (math.radians(0), 'P')
 
 def raiseRightArm():
     print("*Raising right arm*")
+    robot.motors[4].target = (math.radians(0), 'P')
 
 def lowerLeftArm():
     print("*Lowering left arm*")
@@ -236,7 +248,7 @@ def main():
     
     # Display initial prompt only once
     if not initial_prompt_displayed:
-        text = "Hi, what is your name and what can you do for me?"
+        text = "Hi, what is your name?"
         respondWithSpeech(text)
         initial_prompt_displayed = True
     
