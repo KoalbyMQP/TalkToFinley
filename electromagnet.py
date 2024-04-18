@@ -23,5 +23,5 @@ def main():
         previous_state = True
 
 def onExit(sig, frame):  # Remove self parameter
-    GPIO.output(pin, True)
+    GPIO.output(pin, False)
     exit(0)

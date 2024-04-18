@@ -8,6 +8,9 @@ from openai import OpenAI
 import speech_recognition as sr
 from speech_recognition.exceptions import UnknownValueError
 import pygame
+import pyttsx3
+import numpy as np
+from gtts import gTTS
 
 # Tool functions chatgpt can invoke indirectly
 def endConversation():
@@ -202,8 +205,8 @@ def respondWithSpeech(inputPrompt):
 def main():
     while True:
 
-        text = "hi, what is your name and what can you do for me?"
-        respondWithSpeech(text)
+        # text = "hi, what is your name and what can you do for me?"
+        # respondWithSpeech(text)
         
         spokenText = listenForQuestion()
 
