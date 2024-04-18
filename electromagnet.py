@@ -3,7 +3,7 @@ import RPi.GPIO as GPIO
 import time
 import signal
 
-pin = 13  #change pin
+pin = 17  #change pin
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(pin, GPIO.OUT)
