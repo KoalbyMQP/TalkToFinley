@@ -34,17 +34,17 @@ def lowerLeftArm():
 def lowerRightArm():
     print("*Lowering right arm*")
     robot.motors[3].target = (math.radians(90), 'P')
-    robot.moveToTarget()
+    robot.moveAllToTarget()
 
 def raiseLeftArm():
     print("*Lowering left arm*")
     robot.motors[6].target = (math.radians(0), 'P')
-    robot.moveToTarget()
+    robot.moveAllToTarget()
 
 def raiseRightArm():
     print("*Lowering right arm*")
     robot.motors[3].target = (math.radians(0), 'P')
-    robot.moveToTarget()
+    robot.moveAllToTarget()
 
 def handCandy():
     print("*Handing a piece of Candy*")    
