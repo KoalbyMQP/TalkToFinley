@@ -26,21 +26,25 @@ def endConversation():
     print("Ending conversation...")
     sys.exit(0)
 
-def raiseLeftArm():
-    print("*Raising left arm*")
-    robot.motors[6].target = (math.radians(90), 'P')
-    robot.moveAllToTarget()
-
-def raiseRightArm():
-    print("*Raising right arm*")
-    robot.motors[4].target = (math.radians(90), 'P')
-    robot.moveAllToTarget()
-
 def lowerLeftArm():
     print("*Lowering left arm*")
+    robot.motors[6].target = (math.radians(90), 'P')
+    robot.moveToTarget()
 
 def lowerRightArm():
     print("*Lowering right arm*")
+    robot.motors[3].target = (math.radians(90), 'P')
+    robot.moveToTarget()
+
+def raiseLeftArm():
+    print("*Lowering left arm*")
+    robot.motors[6].target = (math.radians(0), 'P')
+    robot.moveToTarget()
+
+def raiseRightArm():
+    print("*Lowering right arm*")
+    robot.motors[3].target = (math.radians(0), 'P')
+    robot.moveToTarget()
 
 def handCandy():
     print("*Handing a piece of Candy*")    
