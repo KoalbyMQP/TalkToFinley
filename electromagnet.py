@@ -1,12 +1,18 @@
-# from serial import Serial
-# import RPi.GPIO as GPIO
-# import time
+from serial import Serial
+import RPi.GPIO as GPIO
+import time
+import signal
 
-# GPIO.setmode(GPIO.BCM)
-# GPIO.setup(13, GPIO.OUT) #change pin
-# def main():
-#     while True:
-#         GPIO.output(18, True)
-#         time.sleep(1)
-#         GPIO.output(18, False)
-#         time.sleep(1) 
+pin = 13  #change pin
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(pin, GPIO.OUT)
+def main():
+    signal.signal(signal.SIGINT, onExit)
+    GPIO.output(pin, True)
+    time.sleep(10)
+    GPIO.output(pin, False)
+
+def onExit(self, sig, frame):
+    GPIO.output(pin, False)
+    exit(0)

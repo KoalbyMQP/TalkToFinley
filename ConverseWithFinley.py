@@ -110,3 +110,6 @@ def main():
             sys.exit(0)
 
         respondWithSpeech(spokenText)
+
+if __name__ == "__main__":
+    main()

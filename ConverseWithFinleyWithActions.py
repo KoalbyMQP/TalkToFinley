@@ -210,3 +210,6 @@ def main():
         print(spokenText)
 
         respondWithSpeech(spokenText)
+
+if __name__ == "__main__":
+    main()
