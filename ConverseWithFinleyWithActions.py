@@ -13,6 +13,13 @@ import warnings
 # Ignore DeprecationWarning
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 import finlyPickAndPlaceIRL
+import math
+import numpy as np 
+sys.path.append("./")
+from backend.KoalbyHumanoid.Robot import Robot
+
+is_real = True
+robot = Robot(is_real)
 
 # Tool functions chatgpt can invoke indirectly
 def endConversation():
@@ -21,9 +28,13 @@ def endConversation():
 
 def raiseLeftArm():
     print("*Raising left arm*")
+    robot.motors[6].target = (math.radians(90), 'P')
+    robot.moveAllToTarget()
 
 def raiseRightArm():
     print("*Raising right arm*")
+    robot.motors[4].target = (math.radians(90), 'P')
+    robot.moveAllToTarget()
 
 def lowerLeftArm():
     print("*Lowering left arm*")
