@@ -9,10 +9,10 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(pin, GPIO.OUT)
 def main():
     signal.signal(signal.SIGINT, onExit)
-    GPIO.output(pin, True)
-    time.sleep(10)
     GPIO.output(pin, False)
+    time.sleep(10)
+    GPIO.output(pin, True)
 
 def onExit(self, sig, frame):
-    GPIO.output(pin, False)
+    GPIO.output(pin, True)
     exit(0)
