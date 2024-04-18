@@ -100,16 +100,12 @@ def respondWithSpeech(inputPrompt):
     os.remove(outputFile) 
 
 # Loop to converse with Finley
-def main():
-    while True:
-        spokenText = listenForQuestion()
+while True:
+    spokenText = listenForQuestion()
 
-        print(spokenText)
-            
-        if spokenText.lower() in ['quit', 'stop', 'exit']:
-            sys.exit(0)
+    print(spokenText)
+        
+    if spokenText.lower() in ['quit', 'stop', 'exit']:
+        sys.exit(0)
 
-        respondWithSpeech(spokenText)
-
-if __name__ == "__main__":
-    main()
+    respondWithSpeech(spokenText)

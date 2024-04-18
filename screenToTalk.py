@@ -1,7 +1,6 @@
 import pygame
 import sys
 import ConverseWithFinleyWithActions
-import ConverseWithFinley
 import finlyPickAndPlaceIRL
 import electromagnet
 

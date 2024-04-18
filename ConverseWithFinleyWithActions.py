@@ -8,9 +8,10 @@ from openai import OpenAI
 import speech_recognition as sr
 from speech_recognition.exceptions import UnknownValueError
 import pygame
-import pyttsx3
-import numpy as np
-from gtts import gTTS
+# from gtts import gTTS
+import warnings
+# Ignore DeprecationWarning
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 # Tool functions chatgpt can invoke indirectly
 def endConversation():
@@ -66,11 +67,11 @@ def listenForQuestion():
 
                 # wait to adjust
                 print("Adjusting for ambient noise...")
-                r.adjust_for_ambient_noise(src, duration=0.5)
+                r.adjust_for_ambient_noise(src, duration=0.2)
 
-                print("Listening for speech. Say just 'quit', 'stop', or 'exit' to exit from the program.")
-                # listens for the user's input
-                audio2 = r.listen(src, timeout=10)
+                print("Listening for speech")
+                #listens for the user's input 
+                audio2 = r.listen(src, phrase_time_limit=5)
 
                 print("Converting to text...")
                 # Using google to recognize audio
@@ -201,18 +202,23 @@ def respondWithSpeech(inputPrompt):
         pygame.mixer.music.unload()
         os.remove(outputFile)
 
+initial_prompt_displayed = False
+
 # Loop to converse with Finley
 def main():
+    global initial_prompt_displayed
+    
+    # Display initial prompt only once
+    if not initial_prompt_displayed:
+        text = "Hi, what is your name and what can you do for me?"
+        respondWithSpeech(text)
+        initial_prompt_displayed = True
+    
+    # Continue the conversation loop
     while True:
-
-        # text = "hi, what is your name and what can you do for me?"
-        # respondWithSpeech(text)
-        
         spokenText = listenForQuestion()
-
         print(spokenText)
-
         respondWithSpeech(spokenText)
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()

@@ -11,7 +11,7 @@ with sr.Microphone() as src:
 
     print("Listening for speech")
     #listens for the user's input 
-    audio2 = r.listen(src)
+    audio2 = r.listen(src, phrase_time_limit=5)
 
     print("Converting to text...")
     # Using google to recognize audio
