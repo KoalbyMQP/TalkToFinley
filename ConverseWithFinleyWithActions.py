@@ -191,6 +191,8 @@ def respondWithSpeech(inputPrompt):
             lowerLeftArm()
         elif call.function.name == "lowerRightArm":
             lowerRightArm()
+        elif call.function.name == "handCandy":
+            handCandy()
         else:
             print(f"invalid tool function invokation: {call.function.name}")
 
