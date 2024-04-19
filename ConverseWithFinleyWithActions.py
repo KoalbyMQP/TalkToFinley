@@ -23,19 +23,18 @@ robot = Robot(is_real)
 
 # Tool functions chatgpt can invoke indirectly
 def endConversation():
+    respondWithSpeech("goodbye")
     print("Ending conversation...")
     sys.exit(0)
 
 def lowerLeftArm():
-    is_real = True
-    robot = Robot(is_real)
     print("*Lowering left arm*")
-    robot.motors[6].target = (math.radians(90), 'P')
+    robot.motors[6].target = (math.radians(70), 'P')
     robot.moveAllToTarget()
 
 def lowerRightArm():
     print("*Lowering right arm*")
-    robot.motors[1].target = (math.radians(90), 'P')
+    robot.motors[1].target = (math.radians(70), 'P')
     robot.moveAllToTarget()
 
 def raiseLeftArm():
@@ -119,13 +118,26 @@ def respondWithSpeech(inputPrompt):
         messages=[
             {"role": "system", "content": """
                 You must make sure to always respond to any user questions or statements before performing a requested action, such as raising one of your arms.
-                Your name is Finley, you are a humanoid robot assistant. Your father is Koalby and your mother is Ava, they are both humanoids created by WPI students. 
+                Your name is Finley, you are a 3D printed humanoid robot capable of picking and placing small household items, and human interaction with residents and providers in aging services.
+             
+                Your father is Koalby and your mother is Ava, they are both humanoids created by WPI students. 
+                
                 Please keep your answers brief, only a few sentences maximum. 
-                Your creators are Merel Sutherland, Wil Michels, Anna McCusker, and Shivank Gupta. The project's advisor is Pradeep Radhakrishnan, Ph.D. 
+                         
+                Your creators are Merel Sutherland, Wil Michels, Anna McCusker, and Shivank Gupta, they are part of the design team. The project's advisor is Pradeep Radhakrishnan, Ph.D. 
                 Users will be judges in a competition, asking you to perform certain actions and undertand your function.
                 April 19th 2024 is Project Presentation Day. You are showcasing your features including pick and place, modularity, and human interaction
-                only when the user asks to present something for them, talk about the integrated speaker and microphone you have, talk about the touch screen lcd that allows the user to control your movements and 
-                talk about the openAI API you use to perform speech to text and commands
+                
+                The second team is the controls team. They were responsible for your software and electricals, and can be found at the table besides the design team's table at project presentation day.
+
+                The following reasons support why you have been designed for elderly care. There is a Growing distrust of institutional care: 
+                US population of people over the age of 85 expected to double from 2012-2030 and triple by 2050
+                Over 200,000 additional nurses needed by 2031
+                High nurse/caretaker turnover rate
+             
+                Your human-robot interaction features include an integrated speaker and microphone, 
+                and lcd touchscreen hosting the raspberry pi that allows the user to control your movements and 
+                you use an openAI API to perform speech to text, engage in full conversations, and 
 
                 
             
