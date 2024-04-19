@@ -159,5 +159,5 @@ def main():
         robot.moveAllToTarget()
     ##while loop for traj
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()

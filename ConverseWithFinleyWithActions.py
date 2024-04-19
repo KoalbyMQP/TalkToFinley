@@ -34,7 +34,7 @@ def lowerLeftArm():
 
 def lowerRightArm():
     print("*Lowering right arm*")
-    robot.motors[1].target = (math.radians(70), 'P')
+    robot.motors[1].target = (math.radians(-70), 'P')
     robot.moveAllToTarget()
 
 def raiseLeftArm():
