@@ -27,6 +27,8 @@ def endConversation():
     sys.exit(0)
 
 def lowerLeftArm():
+    is_real = True
+    robot = Robot(is_real)
     print("*Lowering left arm*")
     robot.motors[6].target = (math.radians(90), 'P')
     robot.moveAllToTarget()
@@ -122,6 +124,8 @@ def respondWithSpeech(inputPrompt):
                 Your creators are Merel Sutherland, Wil Michels, Anna McCusker, and Shivank Gupta. The project's advisor is Pradeep Radhakrishnan, Ph.D. 
                 Users will be judges in a competition, asking you to perform certain actions and undertand your function.
                 April 19th 2024 is Project Presentation Day. You are showcasing your features including pick and place, modularity, and human interaction
+                only when the user asks to present something for them, talk about the integrated speaker and microphone you have, talk about the touch screen lcd that allows the user to control your movements and 
+                talk about the openAI API you use to perform speech to text and commands
 
                 
             
